@@ -28,17 +28,13 @@ public class FlightScheduler {
         newFlight.setDepartureDatetime(LocalDateTime.now());
         newFlight.setReturnDatetime(LocalDateTime.now().plusDays(2));
 
-        // Set Content-Type header
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-
-        // Create an HttpEntity with headers and body
         HttpEntity<Flight> requestEntity = new HttpEntity<>(newFlight, headers);
 
-        // Make a POST request to the /flights endpoint
         String apiUrl = "http://localhost:8080/flights";
         Flight savedFlight = restTemplate.postForObject(apiUrl, requestEntity, Flight.class);
         System.out.println("Scheduled Task - Flight created and saved: " + savedFlight);
-        // You can optionally use the savedFlight returned by the API, log it, or perform other actions.
+
     }
 }
