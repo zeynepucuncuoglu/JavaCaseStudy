@@ -74,7 +74,7 @@ public class FlightController {
 
             return new ResponseEntity<>(flights, HttpStatus.OK);
         } catch (Exception e) {
-            // Log the exception for debugging
+
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
